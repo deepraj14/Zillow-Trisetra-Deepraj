@@ -1,0 +1,18 @@
+.carousel-box-parent
+{
+    position: relative;
+}
+
+.carousel-parent-text
+{
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.badge
+{
+    margin:0.5rem;
+}

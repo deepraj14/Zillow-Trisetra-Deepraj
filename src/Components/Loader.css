@@ -1,0 +1,39 @@
+.loader-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2vw; /* Responsive padding */
+    border-radius: 10px; /* Slightly enlarged border radius */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .loader {
+    border: 0.5vw solid #f3f3f3; 
+    border-top: 0.5vw solid #3498db;
+    border-radius: 50%;
+    width: 10vw; 
+    height: 10vw; 
+    animation: spin 2s linear infinite;
+    margin-bottom: 1vw; 
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
