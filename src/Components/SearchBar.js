@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import axios from 'axios';
 import Toast from 'react-bootstrap/Toast';
+import './SearchBar.css'
 
 import ToastComponent from './Toast';
 import './Loader.css'
@@ -57,19 +58,20 @@ const SearchBar = ({setData,alert,setAlert}) => {
     <ToastComponent showToast={alert} setShowToast={setAlert} />
     <input
       onChange={(e) => { setSearch(e.target.value); }}
-      className="form-control  me-2"
+      className="form-control me-2"
       type="search"
       placeholder="City, Neighborhood, ZIP, Address"
       aria-label="Search"
       required={true}
     />
     
-    <button onClick={() => { handleSearch(); }} className="btn btn-outline-primary m-0">
+    <button onClick={() => { handleSearch(); }} className=" custom-button  btn btn-outline-primary m-0 mt-md-0 mt-2">
       Search
     </button>
     
     {isLoading && <Loader />}
   </div>
+  
             
    
   )

@@ -1,0 +1,12 @@
+@media (min-width: 768px) {
+    .custom-button {
+      width: 50%;
+    }
+  }
+  
+  /* For small screens */
+  @media (max-width: 767px) {
+    .custom-button {
+      width: 100%;
+    }
+  }
