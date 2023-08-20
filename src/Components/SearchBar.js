@@ -24,20 +24,22 @@ const SearchBar = ({setData,alert,setAlert}) => {
         method: 'GET',
         url: 'https://zillow56.p.rapidapi.com/search',
         params: {
-          location:search
+          location: search
         },
         headers: {
-          'X-RapidAPI-Key': 'd384080c17msh2c944c43eb814dap157bbejsnc1cba26df1bb',
+          'X-RapidAPI-Key': '922d98a2afmsh25f0afd2ff396bcp11a94ejsnd702f5858373',
           'X-RapidAPI-Host': 'zillow56.p.rapidapi.com'
         }
       };
       
         
-        axios.request(options).then((res)=>{setData(res.data.results)}).catch((err)=>setData([])).finally(() => {
+        axios.request(options).then((res)=>{console.log(res.data.results);setData(res?.data?.results)}).catch((err)=>setData([])).finally(() => {
           setIsLoading(false);
         });;
         
     }
+
+
 
     function Loader() {
       return (
@@ -51,23 +53,23 @@ const SearchBar = ({setData,alert,setAlert}) => {
     
 
 
-      <div className="d-flex m-4  flex-column flex-md-row" >
-        
-              <ToastComponent  showToast={alert} setShowToast={setAlert}/>
-              <input
-                onChange={(e)=>{setSearch(e.target.value)}}
-                className="form-control mb-2 me-2"
-                type="search"
-                placeholder="City, Neighborhood, ZIP, Address"
-                aria-label="Search"
-                required={true}
-              />
-              
-              <button  onClick={()=>{handleSearch()}} className=" ps-5 pe-5 btn btn-outline-primary">
-                Search
-              </button>
-              {isLoading && <Loader />}
-            </div>
+    <div className="d-flex m-4 flex-column flex-md-row align-items-center justify-content-center">
+    <ToastComponent showToast={alert} setShowToast={setAlert} />
+    <input
+      onChange={(e) => { setSearch(e.target.value); }}
+      className="form-control  me-2"
+      type="search"
+      placeholder="City, Neighborhood, ZIP, Address"
+      aria-label="Search"
+      required={true}
+    />
+    
+    <button onClick={() => { handleSearch(); }} className="btn btn-outline-primary m-0">
+      Search
+    </button>
+    
+    {isLoading && <Loader />}
+  </div>
             
    
   )
