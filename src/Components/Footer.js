@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram,faLinkedinIn ,faTwitter} from '@fortawesome/free-brands-svg-icons';
 function Footer() {
     return (
-      <footer className="bg-dark text-light py-4">
+      <footer className="mt-5 bg-dark text-light py-4">
         <Container>
           <Row>
             <Col md={4} className="text-center">

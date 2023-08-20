@@ -28,7 +28,7 @@ const SearchBar = ({setData,alert,setAlert}) => {
           location: search
         },
         headers: {
-          'X-RapidAPI-Key': '922d98a2afmsh25f0afd2ff396bcp11a94ejsnd702f5858373',
+          'X-RapidAPI-Key': '04d833a9aemsh6adddb7e2f289cfp106dbbjsned9f02b13ef7',
           'X-RapidAPI-Host': 'zillow56.p.rapidapi.com'
         }
       };

@@ -39,7 +39,7 @@ const Home = () => {
           return null;
         })}
       </Row>
-      <Footer />
+      <Footer/>
     </div>
   );
 }
