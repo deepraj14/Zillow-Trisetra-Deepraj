@@ -28,7 +28,7 @@ const Home = () => {
       <Navbar />
       <SearchBar setData={setData} alert={alert} setAlert={setAlert} />
       <Row className="row m-0">
-        {data.map((e, index) => {
+        {data!==undefined && data.map((e, index) => {
           if (imageExists(e.imgSrc)) {
             return (
               <Col key={index} className="m-2 justify-content-center d-flex">

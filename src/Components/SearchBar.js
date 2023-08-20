@@ -2,9 +2,10 @@ import React, { useState} from 'react'
 import axios from 'axios';
 import Toast from 'react-bootstrap/Toast';
 import './SearchBar.css'
+import swal from 'sweetalert';
 
-import ToastComponent from './Toast';
 import './Loader.css'
+import { results } from '../Data/PropertyData';
 const SearchBar = ({setData,alert,setAlert}) => {
 
 
@@ -17,7 +18,11 @@ const SearchBar = ({setData,alert,setAlert}) => {
 
       if(search===""){
        
-        setAlert(true);
+        //swal("search box cant be left empty")
+        swal({
+          icon: "warning",
+          text:"Please enter a search term to proceed. ",
+        });
         return;
       }
       setIsLoading(true);
@@ -34,7 +39,29 @@ const SearchBar = ({setData,alert,setAlert}) => {
       };
       
         
-        axios.request(options).then((res)=>{console.log(res.data.results);setData(res?.data?.results)}).catch((err)=>setData([])).finally(() => {
+        axios.request(options)
+        .then((res)=>{
+          console.log(res.data.results);
+
+          if(res.data.results==undefined)
+          {
+            setData(results);
+            swal({
+              icon: "info",
+              text:"Sorry, no property matches the provided address.",
+            });
+            
+          }
+          else{
+
+            setData(res?.data?.results)
+          }
+          
+        
+        })
+        
+        
+        .catch((err)=>setData(results)).finally(() => {
           setIsLoading(false);
         });;
         
@@ -55,7 +82,7 @@ const SearchBar = ({setData,alert,setAlert}) => {
 
 
     <div className="d-flex m-4 flex-column flex-md-row align-items-center justify-content-center">
-    <ToastComponent showToast={alert} setShowToast={setAlert} />
+    {/* <ToastComponent showToast={alert} setShowToast={setAlert} /> */}
     <input
       onChange={(e) => { setSearch(e.target.value); }}
       className="form-control me-2"
